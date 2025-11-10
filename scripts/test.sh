@@ -1,6 +1,5 @@
 #!/bin/bash
 # test.sh - Tests de validation
-
 set -e
 
 GREEN='\033[0;32m'

@@ -1,6 +1,5 @@
 #!/bin/bash
 # build.sh - Script de construction de l'image Docker
-
 set -e
 
 # Couleurs

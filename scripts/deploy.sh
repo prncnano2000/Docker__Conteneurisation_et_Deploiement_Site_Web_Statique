@@ -1,6 +1,5 @@
 #!/bin/bash
 # deploy.sh - Script de déploiement
-
 set -e
 
 GREEN='\033[0;32m'
