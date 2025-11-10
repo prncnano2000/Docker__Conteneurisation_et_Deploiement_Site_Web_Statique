@@ -1,0 +1,44 @@
+# .dockerignore - Fichiers à exclure de l'image Docker
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+docs/
+*.md
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+Jenkinsfile
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Dépendances (si applicable)
+node_modules/
+npm-debug.log
+
+# Fichiers temporaires
+tmp/
+temp/
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Scripts de développement
+scripts/dev-*.sh
+docker-compose.dev.yml

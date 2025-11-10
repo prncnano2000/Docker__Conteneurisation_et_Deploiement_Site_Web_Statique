@@ -1,0 +1,41 @@
+# docker-compose.yml - Orchestration basic des conteneurs
+services:
+  # Service Web
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: static-website
+    image: static-website:latest
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - web-network
+
+  # Service de surveillance (optionnel)
+  # cadvisor:
+  #   image: gcr.io/cadvisor/cadvisor:latest
+  #   container_name: cadvisor
+  #   ports:
+  #     - "8081:8080"
+  #   volumes:
+  #     - /:/rootfs:ro
+  #     - /var/run:/var/run:ro
+  #     - /sys:/sys:ro
+  #     - /var/lib/docker/:/var/lib/docker:ro
+  #   networks:
+  #     - webnet
+
+networks:
+  web-network:
+    driver: bridge
